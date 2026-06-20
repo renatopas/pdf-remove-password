@@ -1,0 +1,705 @@
+2026-06-19 20:49:38,323 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.04.15.pdf
+2026-06-19 20:49:38,346 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.05.15.pdf
+2026-06-19 20:49:38,371 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.08.15.pdf
+2026-06-19 20:49:38,390 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.09.18.PDF
+2026-06-19 20:49:38,391 WARNING ignorado_colisao_destino: Tel.2941-8072.venc.2025.01.05.pdf
+2026-06-19 20:49:38,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:49:38,392 WARNING ignorado_colisao_destino: Tel.2941-8072.venc.2025.06.05.pdf
+2026-06-19 20:49:38,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:49:38,393 INFO resumo: ignored_destination_collision=2, ignored_no_password_in_name=2, processed=4
+2026-06-19 20:53:00,702 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,702 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,703 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,703 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,703 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,703 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,704 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,704 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,704 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,713 INFO copia_criada_e_original_movido: Boleto.DX.fone.venc.2018.11.26.pdf
+2026-06-19 20:53:00,713 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,714 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,714 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,714 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,714 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,715 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,715 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,715 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,715 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,716 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,716 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,716 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,716 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,716 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:00,738 INFO copia_criada_e_original_movido: Carrefour.venc.2024.02.20.pdf
+2026-06-19 20:53:00,762 INFO copia_criada_e_original_movido: Carrefour.venc.2024.03.20.pdf
+2026-06-19 20:53:00,783 INFO copia_criada_e_original_movido: Carrefour.venc.2024.05.20.pdf
+2026-06-19 20:53:00,807 INFO copia_criada_e_original_movido: Carrefour.venc.2024.06.20.pdf
+2026-06-19 20:53:00,830 INFO copia_criada_e_original_movido: Carrefour.venc.2024.07.20.pdf
+2026-06-19 20:53:00,850 INFO copia_criada_e_original_movido: Carrefour.venc.2024.08.20.pdf
+2026-06-19 20:53:00,871 INFO copia_criada_e_original_movido: Carrefour.venc.2024.09.20.pdf
+2026-06-19 20:53:00,892 INFO copia_criada_e_original_movido: Carrefour.venc.2024.10.20.pdf
+2026-06-19 20:53:00,913 INFO copia_criada_e_original_movido: Carrefour.venc.2024.11.20.pdf
+2026-06-19 20:53:00,932 INFO copia_criada_e_original_movido: Carrefour.venc.2024.12.20.pdf
+2026-06-19 20:53:00,953 INFO copia_criada_e_original_movido: Carrefour.venc.2025.01.20.pdf
+2026-06-19 20:53:00,972 INFO copia_criada_e_original_movido: Carrefour.venc.2025.02.20.pdf
+2026-06-19 20:53:00,993 INFO copia_criada_e_original_movido: Carrefour.venc.2025.03.20.pdf
+2026-06-19 20:53:01,013 INFO copia_criada_e_original_movido: Carrefour.venc.2025.04.20.pdf
+2026-06-19 20:53:01,034 INFO copia_criada_e_original_movido: Carrefour.venc.2025.05.20.pdf
+2026-06-19 20:53:01,053 INFO copia_criada_e_original_movido: Carrefour.venc.2025.08.20.pdf
+2026-06-19 20:53:01,073 INFO copia_criada_e_original_movido: Carrefour.venc.2025.09.20.pdf
+2026-06-19 20:53:01,094 INFO copia_criada_e_original_movido: Carrefour.venc.2025.10.20.pdf
+2026-06-19 20:53:01,113 INFO copia_criada_e_original_movido: Carrefour.venc.2025.11.20.pdf
+2026-06-19 20:53:01,133 INFO copia_criada_e_original_movido: Carrefour.venc.2025.12.20.pdf
+2026-06-19 20:53:01,154 INFO copia_criada_e_original_movido: Carrefour.venc.2026.02.20.pdf
+2026-06-19 20:53:01,175 INFO copia_criada_e_original_movido: Carrefour.venc.2026.03.20.pdf
+2026-06-19 20:53:01,196 INFO copia_criada_e_original_movido: Carrefour.venc.2026.04.20.pdf
+2026-06-19 20:53:01,218 INFO copia_criada_e_original_movido: Carrefour.venc.2026.05.20.pdf
+2026-06-19 20:53:01,230 INFO copia_criada_e_original_movido: Carrefour.venc.2026.06.20.pdf
+2026-06-19 20:53:01,231 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,231 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,232 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,233 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,233 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,233 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,234 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,234 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,234 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,234 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,235 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,235 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,235 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,276 INFO copia_criada_e_original_movido: Comgas.venc.2026.05.21.pdf
+2026-06-19 20:53:01,314 INFO copia_criada_e_original_movido: Comgas.venc.2026.06.21.pdf
+2026-06-19 20:53:01,315 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,315 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,316 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,384 INFO copia_criada_e_original_movido: Corsa Porto Seguro 2024.01.pdf
+2026-06-19 20:53:01,431 INFO copia_criada_e_original_movido: Corsa Porto Seguro 2024.09.28.pdf
+2026-06-19 20:53:01,474 INFO copia_criada_e_original_movido: Corsa Porto Seguro Apólice 2015.10.01.pdf
+2026-06-19 20:53:01,485 INFO copia_criada_e_original_movido: Corsa Porto Seguro Carteirinha 2025.10.01.pdf
+2026-06-19 20:53:01,486 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,486 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,486 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,486 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,487 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,487 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,487 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,487 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,487 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,488 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,488 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,488 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,488 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,488 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,489 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,489 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,489 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,489 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,489 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,490 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,490 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,490 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,490 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,490 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,491 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,491 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,491 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,491 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,491 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,492 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,493 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:01,516 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2024.10.10.pdf
+2026-06-19 20:53:01,539 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2024.11.10.pdf
+2026-06-19 20:53:01,563 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.01.10.pdf
+2026-06-19 20:53:01,586 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.02.10.pdf
+2026-06-19 20:53:01,610 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.05.10.pdf
+2026-06-19 20:53:01,636 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.06.10.pdf
+2026-06-19 20:53:01,662 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.07.10.pdf
+2026-06-19 20:53:01,688 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.09.10.pdf
+2026-06-19 20:53:01,716 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.10.10.PDF
+2026-06-19 20:53:01,742 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.11.10.PDF
+2026-06-19 20:53:01,780 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2025.12.10.pdf
+2026-06-19 20:53:01,814 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2026.01.10.pdf
+2026-06-19 20:53:01,841 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2026.03.10.pdf
+2026-06-19 20:53:01,898 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2026.04.10.pdf
+2026-06-19 20:53:02,005 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2026.05.10.pdf
+2026-06-19 20:53:02,139 INFO copia_criada_e_original_movido: Internet Pedregal Claro venc 2026.06.10.pdf
+2026-06-19 20:53:02,143 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,148 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,155 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,163 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,171 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,176 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,177 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,178 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,179 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,180 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,185 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,187 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,189 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,228 INFO copia_criada_e_original_movido: IPTU Europa comunicado CADIN 2021.pdf
+2026-06-19 20:53:02,228 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,230 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,230 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,232 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,234 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,235 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,236 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,236 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,236 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,237 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,237 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,237 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,238 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,238 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,238 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,238 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,239 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,239 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,239 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,239 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,259 INFO copia_criada_e_original_movido: Manual celular Multilaser Vita 2020.08.pdf
+2026-06-19 20:53:02,259 WARNING ignorado_colisao_destino: Manual celular Multilaser Vita 2020.08.pdf
+2026-06-19 20:53:02,260 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,260 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,261 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,261 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,261 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,262 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,262 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,262 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,262 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,263 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,263 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,263 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,264 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,264 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,264 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,265 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,265 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,266 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,267 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,267 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,267 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,268 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,268 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,268 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,269 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,269 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,269 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,269 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,270 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,270 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,270 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,270 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,271 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,271 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,271 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,272 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,272 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,272 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,273 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,273 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,273 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,273 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,274 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,277 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,278 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,279 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,280 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,283 WARNING ignorado_colisao_destino: NF bike sense rock evo scatt 2022.10.22.pdf
+2026-06-19 20:53:02,284 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,288 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,290 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,292 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,292 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,294 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,294 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,295 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,296 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,300 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,303 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,304 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,304 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,312 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,315 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,317 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,318 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,319 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,320 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,321 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,322 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,323 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,324 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,325 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,325 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,325 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,326 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,326 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,327 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,327 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,327 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,328 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,328 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,329 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,329 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,330 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,331 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,331 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,332 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,333 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,334 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,334 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,334 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,334 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,335 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,335 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,335 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,335 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,335 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,336 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,336 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,336 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,337 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,338 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,339 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,340 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,340 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,340 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,341 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,341 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,341 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,341 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,342 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,342 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,342 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,344 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,344 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,344 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,345 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,345 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,345 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,345 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,346 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,346 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,346 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,347 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,347 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,347 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,348 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,348 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,348 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,348 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,349 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,349 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,350 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,350 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,351 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,351 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,351 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,351 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,351 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,352 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,352 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,352 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,355 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,355 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,355 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,355 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,355 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,356 WARNING ignorado_colisao_destino: NF purificador Consul 2021.06.30.pdf
+2026-06-19 20:53:02,356 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,356 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,356 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,356 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,357 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,357 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,357 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,357 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,358 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,358 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,358 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,358 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,364 INFO copia_criada_e_original_movido: NF sessoes RPG 2021.01.11.pdf
+2026-06-19 20:53:02,365 WARNING ignorado_colisao_destino: NF sessoes RPG 2021.01.11.pdf
+2026-06-19 20:53:02,366 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,366 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,366 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,366 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,367 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,367 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,367 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,367 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,367 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,368 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,368 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,370 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,371 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,371 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,371 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,371 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,372 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,372 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,372 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,372 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,373 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,374 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,374 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,374 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,374 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,374 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,375 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,375 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,375 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,375 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,376 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,376 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,376 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,376 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,377 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,377 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,377 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,377 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,378 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,378 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,378 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,378 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,378 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,379 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,379 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,379 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,379 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,379 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,380 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,380 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,380 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,381 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,381 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,381 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,381 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,381 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,382 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,382 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,382 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,389 INFO copia_criada_e_original_movido: Relatório de Estágio.pdf
+2026-06-19 20:53:02,390 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,390 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,390 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,391 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,392 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,393 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,393 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,393 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,393 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,393 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,394 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,395 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,395 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,395 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,395 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,395 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,396 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,396 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,396 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,396 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,396 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,397 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,397 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,408 INFO copia_criada_e_original_movido: Renato Paschoalinoto - Contrato 24horas.pdf
+2026-06-19 20:53:02,408 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,408 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,409 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,409 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,409 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,409 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,409 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,410 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,410 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,410 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,410 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,411 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,411 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,411 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,411 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,411 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,412 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,412 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,412 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,421 INFO copia_criada_e_original_movido: Renato.Maria.Jose.certidao.de.casamento.pdf
+2026-06-19 20:53:02,421 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,421 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,421 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,422 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,422 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,426 INFO copia_criada_e_original_movido: RG Bruno 2026.pdf
+2026-06-19 20:53:02,426 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,427 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,427 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,427 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,427 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,427 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,428 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,429 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,429 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,429 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:02,457 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.03.15.pdf
+2026-06-19 20:53:02,457 WARNING ignorado_colisao_destino: Tel.2641-7448.venc.2022.04.15(08081).pdf
+2026-06-19 20:53:02,483 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.04.15.pdf
+2026-06-19 20:53:02,509 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.05.15.pdf
+2026-06-19 20:53:02,535 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.06.15.pdf
+2026-06-19 20:53:02,568 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.07.15.pdf
+2026-06-19 20:53:02,593 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.08.15.pdf
+2026-06-19 20:53:02,618 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.09.15.pdf
+2026-06-19 20:53:02,645 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.10.15.pdf
+2026-06-19 20:53:02,669 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.11.15.pdf
+2026-06-19 20:53:02,696 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2022.12.15.pdf
+2026-06-19 20:53:02,722 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.01.15.pdf
+2026-06-19 20:53:02,748 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.02.15.pdf
+2026-06-19 20:53:02,771 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.03.15.pdf
+2026-06-19 20:53:02,795 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.04.15.pdf
+2026-06-19 20:53:02,818 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.05.15.pdf
+2026-06-19 20:53:02,849 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.06.15.pdf
+2026-06-19 20:53:02,872 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.07.15.pdf
+2026-06-19 20:53:02,895 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.10.15.pdf
+2026-06-19 20:53:02,918 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.11.15.pdf
+2026-06-19 20:53:02,939 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2024.12.15.pdf
+2026-06-19 20:53:02,961 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.01.15.pdf
+2026-06-19 20:53:02,983 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.02.15.pdf
+2026-06-19 20:53:03,005 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.03.15.pdf
+2026-06-19 20:53:03,027 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.04.15.pdf
+2026-06-19 20:53:03,051 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.05.15.pdf
+2026-06-19 20:53:03,076 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.06.15.pdf
+2026-06-19 20:53:03,104 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.07.15.pdf
+2026-06-19 20:53:03,128 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.08.15.pdf
+2026-06-19 20:53:03,151 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.09.15.pdf
+2026-06-19 20:53:03,173 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.10.15.PDF
+2026-06-19 20:53:03,196 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.11.15.PDF
+2026-06-19 20:53:03,218 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2025.12.15.PDF
+2026-06-19 20:53:03,242 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2026.02.15.pdf
+2026-06-19 20:53:03,264 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2026.03.15.PDF
+2026-06-19 20:53:03,287 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2026.04.15.PDF
+2026-06-19 20:53:03,317 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2026.05.15.PDF
+2026-06-19 20:53:03,358 INFO copia_criada_e_original_movido: Tel.2641-7448.venc.2026.06.15.PDF
+2026-06-19 20:53:03,383 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.03.18.PDF
+2026-06-19 20:53:03,404 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.04.18.PDF
+2026-06-19 20:53:03,425 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.05.18.PDF
+2026-06-19 20:53:03,444 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.06.18.PDF
+2026-06-19 20:53:03,464 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.07.15.PDF
+2026-06-19 20:53:03,484 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.07.18.PDF
+2026-06-19 20:53:03,503 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.08.18.PDF
+2026-06-19 20:53:03,522 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.09.18.PDF
+2026-06-19 20:53:03,540 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.10.18.pdf
+2026-06-19 20:53:03,559 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2022.11.18.pdf
+2026-06-19 20:53:03,577 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2023.01.18.pdf
+2026-06-19 20:53:03,594 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2023.02.18.pdf
+2026-06-19 20:53:03,612 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2023.05.18.pdf
+2026-06-19 20:53:03,631 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2023.10.18.pdf
+2026-06-19 20:53:03,649 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2023.11.18.pdf
+2026-06-19 20:53:03,666 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.03.18.pdf
+2026-06-19 20:53:03,684 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.04.18.pdf
+2026-06-19 20:53:03,701 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.05.18.pdf
+2026-06-19 20:53:03,718 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.06.18.pdf
+2026-06-19 20:53:03,737 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.07.18.pdf
+2026-06-19 20:53:03,762 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2024.10.05.pdf
+2026-06-19 20:53:03,789 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.01.05.pdf
+2026-06-19 20:53:03,815 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.04.05.pdf
+2026-06-19 20:53:03,844 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.05.05.pdf
+2026-06-19 20:53:03,874 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.06.05.pdf
+2026-06-19 20:53:03,902 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.07.05.pdf
+2026-06-19 20:53:03,928 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.08.05.pdf
+2026-06-19 20:53:03,956 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.09.05.pdf
+2026-06-19 20:53:03,978 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.10.05.pdf
+2026-06-19 20:53:04,007 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2025.12.05.PDF
+2026-06-19 20:53:04,035 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2026.02.05.pdf
+2026-06-19 20:53:04,064 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2026.03.05.PDF
+2026-06-19 20:53:04,096 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2026.04.05.PDF
+2026-06-19 20:53:04,128 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2026.05.05.PDF
+2026-06-19 20:53:04,158 INFO copia_criada_e_original_movido: Tel.2941-8072.venc.2026.06.05.PDF
+2026-06-19 20:53:04,180 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2022.11.10.pdf
+2026-06-19 20:53:04,198 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2022.12.10.pdf
+2026-06-19 20:53:04,215 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.01.10.pdf
+2026-06-19 20:53:04,232 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.02.10.pdf
+2026-06-19 20:53:04,248 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.03.10.pdf
+2026-06-19 20:53:04,265 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.05.10.pdf
+2026-06-19 20:53:04,281 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.07.10.pdf
+2026-06-19 20:53:04,297 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.09.10.pdf
+2026-06-19 20:53:04,314 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2023.11.10.pdf
+2026-06-19 20:53:04,333 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.01.10.pdf
+2026-06-19 20:53:04,350 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.02.10.pdf
+2026-06-19 20:53:04,371 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.04.10.pdf
+2026-06-19 20:53:04,400 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.05.10.pdf
+2026-06-19 20:53:04,422 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.06.10.pdf
+2026-06-19 20:53:04,455 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.07.10.pdf
+2026-06-19 20:53:04,475 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.08.10.pdf
+2026-06-19 20:53:04,536 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.09.10.pdf
+2026-06-19 20:53:04,616 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2024.12.10.pdf
+2026-06-19 20:53:04,651 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.01.10.pdf
+2026-06-19 20:53:04,751 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.02.10.pdf
+2026-06-19 20:53:04,812 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.05.10.pdf
+2026-06-19 20:53:04,904 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.07.10.pdf
+2026-06-19 20:53:04,942 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.10.10.pdf
+2026-06-19 20:53:04,972 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.11.10.pdf
+2026-06-19 20:53:05,004 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2025.12.10.pdf
+2026-06-19 20:53:05,027 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2026.01.10.pdf
+2026-06-19 20:53:05,049 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2026.02.10.pdf
+2026-06-19 20:53:05,074 INFO copia_criada_e_original_movido: Tel.91316-0256.venc.2026.06.10.pdf
+2026-06-19 20:53:05,091 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.03.12.pdf
+2026-06-19 20:53:05,108 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.04.12.pdf
+2026-06-19 20:53:05,125 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.05.12.pdf
+2026-06-19 20:53:05,141 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.06.12.pdf
+2026-06-19 20:53:05,158 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.09.12.pdf
+2026-06-19 20:53:05,174 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.10.12.pdf
+2026-06-19 20:53:05,192 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2022.12.12.pdf
+2026-06-19 20:53:05,209 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2023.03.12.pdf
+2026-06-19 20:53:05,226 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2023.08.12.pdf
+2026-06-19 20:53:05,242 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2023.11.12.pdf
+2026-06-19 20:53:05,258 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.02.12.pdf
+2026-06-19 20:53:05,275 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.03.12.pdf
+2026-06-19 20:53:05,291 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.05.12.pdf
+2026-06-19 20:53:05,308 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.07.12.pdf
+2026-06-19 20:53:05,324 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.08.12.pdf
+2026-06-19 20:53:05,340 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.09.12.pdf
+2026-06-19 20:53:05,360 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2024.10.12.pdf
+2026-06-19 20:53:05,377 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2025.03.12.pdf
+2026-06-19 20:53:05,395 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2025.05.12.pdf
+2026-06-19 20:53:05,414 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2025.06.12.pdf
+2026-06-19 20:53:05,438 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2025.07.12.pdf
+2026-06-19 20:53:05,475 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.01.12.pdf
+2026-06-19 20:53:05,498 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.02.12.pdf
+2026-06-19 20:53:05,525 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.03.12.pdf
+2026-06-19 20:53:05,553 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.04.12.pdf
+2026-06-19 20:53:05,587 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.05.12.pdf
+2026-06-19 20:53:05,618 INFO copia_criada_e_original_movido: Tel.97657-5758.venc.2026.06.12.pdf
+2026-06-19 20:53:05,705 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.03.09.pdf
+2026-06-19 20:53:05,763 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.04.09.pdf
+2026-06-19 20:53:05,826 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.05.09.pdf
+2026-06-19 20:53:05,877 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.06.09.pdf
+2026-06-19 20:53:05,923 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.08.09.pdf
+2026-06-19 20:53:05,997 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.09.09.pdf
+2026-06-19 20:53:06,024 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.11.09.pdf
+2026-06-19 20:53:06,043 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2022.12.09.pdf
+2026-06-19 20:53:06,062 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2023.02.09.pdf
+2026-06-19 20:53:06,080 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2023.05.09.pdf
+2026-06-19 20:53:06,101 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2023.09.09.pdf
+2026-06-19 20:53:06,121 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2023.10.09.pdf
+2026-06-19 20:53:06,271 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2024.01.09.pdf
+2026-06-19 20:53:06,293 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2024.02.09.pdf
+2026-06-19 20:53:06,308 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2024.03.09.pdf
+2026-06-19 20:53:06,326 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2024.04.09.pdf
+2026-06-19 20:53:06,342 INFO copia_criada_e_original_movido: Tel.99204-0712.venc.2024.05.09.pdf
+2026-06-19 20:53:06,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,343 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,344 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,361 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2022.03.20.pdf
+2026-06-19 20:53:06,379 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2022.04.20.pdf
+2026-06-19 20:53:06,397 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2022.08.20.pdf
+2026-06-19 20:53:06,414 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2022.11.20.pdf
+2026-06-19 20:53:06,436 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.08.20.pdf
+2026-06-19 20:53:06,459 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.09.20.pdf
+2026-06-19 20:53:06,478 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.10.20.pdf
+2026-06-19 20:53:06,501 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.11.20.pdf
+2026-06-19 20:53:06,524 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.12.20.pdf
+2026-06-19 20:53:06,543 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2023.12.21.pdf
+2026-06-19 20:53:06,559 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.01.20.pdf
+2026-06-19 20:53:06,577 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.01.21.pdf
+2026-06-19 20:53:06,594 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.02.20.pdf
+2026-06-19 20:53:06,611 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.03.20.pdf
+2026-06-19 20:53:06,628 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.03.21.pdf
+2026-06-19 20:53:06,646 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.04.20.pdf
+2026-06-19 20:53:06,663 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.04.21.pdf
+2026-06-19 20:53:06,679 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.05.20.pdf
+2026-06-19 20:53:06,697 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.06.20.pdf
+2026-06-19 20:53:06,716 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.07.20.pdf
+2026-06-19 20:53:06,734 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.08.20.pdf
+2026-06-19 20:53:06,752 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.09.20.pdf
+2026-06-19 20:53:06,769 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.09.21.pdf
+2026-06-19 20:53:06,790 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.10.20.pdf
+2026-06-19 20:53:06,812 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.10.21.pdf
+2026-06-19 20:53:06,829 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.11.20.pdf
+2026-06-19 20:53:06,847 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2024.12.20.pdf
+2026-06-19 20:53:06,867 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.01.20.pdf
+2026-06-19 20:53:06,886 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.02.20.pdf
+2026-06-19 20:53:06,905 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.03.20.pdf
+2026-06-19 20:53:06,927 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.04.20.pdf
+2026-06-19 20:53:06,945 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.05.20.pdf
+2026-06-19 20:53:06,964 INFO copia_criada_e_original_movido: Tel.99446-7616.venc.2026.06.20.pdf
+2026-06-19 20:53:06,964 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,965 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,965 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,965 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,966 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,966 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,966 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,966 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,966 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,967 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,967 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,967 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,967 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,968 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,968 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,968 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,968 INFO ignorado_sem_senha_no_nome
+2026-06-19 20:53:06,969 WARNING ignorado_colisao_destino: Visa Renato Santander venc 2026.01.10(cpf).PDF
