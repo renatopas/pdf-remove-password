@@ -4,6 +4,11 @@
 
 Este projeto implementará uma ferramenta Windows em Python para remover a criptografia de PDFs que a pessoa usuária tem autorização para abrir. A senha é fornecida pelo próprio nome do arquivo, no último grupo de parênteses antes de `.pdf`.
 
+## Requisitos por issue
+
+- Novos requisitos e mudanças serão descritos em arquivos Markdown em `docs/issues/`, no formato `nnn-nononono.md`.
+- Antes de implementar uma mudança solicitada por issue, leia o arquivo correspondente e trate-o como contexto adicional às regras deste documento.
+
 ## Regras obrigatórias
 
 - Use `pikepdf` para abrir e salvar os PDFs.
@@ -28,6 +33,7 @@ Este projeto implementará uma ferramenta Windows em Python para remover a cript
 
 ## Verificação antes de concluir mudanças
 
+- Para toda mudança funcional, adicione uma entrada em `CHANGELOG.md`, na seção `Unreleased` ou em uma nova versão.
 - Execute a suíte de testes relevante.
 - Verifique cenários de simulação, colisão, arquivo sem padrão de senha, PDF inválido e caminho recursivo.
 - Inspecione os logs/saída de teste para garantir que a senha não aparece.
