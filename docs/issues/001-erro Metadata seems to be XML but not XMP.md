@@ -1,0 +1,2 @@
+Está ocorrendo um erro na abertura de alguns arquivos "Metadata seems to be XML but not XMP"
+Esse erro precisa ser corretamente tratado, pois está gerando um exceção durante a execução, embora não esteja abortando
