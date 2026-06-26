@@ -1,4 +1,4 @@
-"""Remove a senha de PDFs autorizados, usando apenas a senha no nome do arquivo."""
+"""Remove a senha de PDFs autorizados, usando senhas explicitamente fornecidas."""
 
 from __future__ import annotations
 
@@ -18,6 +18,8 @@ import pikepdf
 ORIGINALS_DIRECTORY = "originais-protegidos"
 DEFAULT_LOG_FILENAME = "remove-senha-pdf.log"
 INVALID_XMP_METADATA_MESSAGE = "Metadata seems to be XML but not XMP"
+AUTHORIZED_PASSWORDS_LIMIT = 10
+FALLBACK_OUTPUT_SUFFIX = "-sem-senha"
 
 
 @dataclass(frozen=True)
@@ -59,9 +61,37 @@ def extract_password_candidates(filename: str) -> list[FilenameInfo]:
 
 
 def extract_password_and_output_name(filename: str) -> FilenameInfo | None:
-    """Retorna a última candidata explícita, para compatibilidade e testes."""
+    """Retorna somente o último grupo de parênteses antes de `.pdf`."""
     candidates = extract_password_candidates(filename)
     return candidates[-1] if candidates else None
+
+
+def fallback_output_name(filename: str) -> str:
+    """Calcula um nome de saída quando a senha não veio do nome do arquivo."""
+    path = Path(filename)
+    return f"{path.stem}{FALLBACK_OUTPUT_SUFFIX}{path.suffix}"
+
+
+def read_authorized_passwords(path: Path, *, limit: int = AUTHORIZED_PASSWORDS_LIMIT) -> tuple[str, ...]:
+    """Lê uma lista curta de senhas autorizadas sem registrar seu conteúdo."""
+    try:
+        lines = path.read_text(encoding="utf-8").splitlines()
+    except OSError as error:
+        raise ValueError("arquivo_de_senhas_inexistente_ou_ilegivel") from error
+
+    passwords: list[str] = []
+    for line in lines:
+        candidate = line.strip()
+        if not candidate or candidate.startswith("#"):
+            continue
+        passwords.append(candidate)
+        if len(passwords) > limit:
+            raise ValueError("arquivo_de_senhas_acima_do_limite")
+
+    if not passwords:
+        raise ValueError("arquivo_de_senhas_vazio")
+
+    return tuple(passwords)
 
 
 def iter_pdfs(folder: Path, recursive: bool) -> Iterator[Path]:
@@ -119,7 +149,13 @@ def safe_log_filename(filename: str) -> str:
     return f"{redacted_stem}{path.suffix}"
 
 
-def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
+def process_file(
+    source: Path,
+    *,
+    dry_run: bool,
+    logger: logging.Logger,
+    authorized_passwords: tuple[str, ...] = (),
+) -> str:
     """Processa um PDF e retorna um código de resultado seguro para logs."""
     log_name = safe_log_filename(source.name)
     if dry_run:
@@ -136,8 +172,8 @@ def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
         logger.info("ignorado_pdf_sem_senha arquivo=%s", log_name)
         return "ignored_not_protected"
 
-    candidates = extract_password_candidates(source.name)
-    if not candidates:
+    named_password = extract_password_and_output_name(source.name)
+    if not named_password and not authorized_passwords:
         logger.warning("arquivo_protegido_sem_senha_no_nome arquivo=%s", log_name)
         return "ignored_protected_without_password_name"
 
@@ -147,18 +183,22 @@ def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
         logger.warning("ignorado_colisao_original arquivo=%s", log_name)
         return "ignored_original_collision"
 
-    had_destination_collision = False
-    for info in reversed(candidates):
-        destination = source.with_name(info.output_name)
-        if destination.exists():
-            logger.warning("ignorado_colisao_destino arquivo=%s", log_name)
-            had_destination_collision = True
-            continue
+    if named_password:
+        destination = source.with_name(named_password.output_name)
+        attempts = (named_password.password, *authorized_passwords)
+    else:
+        destination = source.with_name(fallback_output_name(source.name))
+        attempts = authorized_passwords
 
+    if destination.exists():
+        logger.warning("ignorado_colisao_destino arquivo=%s", log_name)
+        return "ignored_destination_collision"
+
+    for password in attempts:
         try:
-            remove_password(source, destination, info.password)
+            remove_password(source, destination, password)
         except pikepdf.PasswordError:
-            # A próxima tentativa, se houver, será outro texto já existente no nome.
+            # A próxima tentativa, se houver, será outra senha explicitamente fornecida.
             continue
         except (pikepdf.PdfError, OSError, ValueError, RuntimeError) as error:
             # Não registrar a exceção: bibliotecas podem incluir dados sensíveis nela.
@@ -183,10 +223,7 @@ def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
         logger.info("copia_criada_e_original_movido arquivo=%s", log_name)
         return "processed"
 
-    if had_destination_collision:
-        return "ignored_destination_collision"
-
-    logger.error("senha_invalida_para_grupos_do_nome arquivo=%s", log_name)
+    logger.error("senha_invalida_para_credenciais_fornecidas arquivo=%s", log_name)
     return "failed_password"
 
 
@@ -198,6 +235,11 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--recursive", action="store_true", help="Inclui subpastas")
     parser.add_argument("--dry-run", action="store_true", help="Não altera arquivos ou diretórios")
     parser.add_argument("--log-file", type=Path, help="Arquivo opcional de log")
+    parser.add_argument(
+        "--authorized-passwords",
+        type=Path,
+        help="Arquivo opcional com lista curta de senhas autorizadas, uma por linha",
+    )
     return parser
 
 
@@ -220,18 +262,34 @@ def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     folder = args.folder.expanduser()
     if not folder.is_dir():
-        logger = configure_logging(args.log_file)
+        logger = configure_logging(None if args.dry_run else args.log_file)
         logger.error("a_pasta_informada_nao_existe_ou_nao_e_um_diretorio")
         return 2
 
     # Sem --log-file, o registro padrão pertence à própria pasta processada.
     # FileHandler usa modo append por padrão, preservando ocorrências anteriores.
-    log_file = args.log_file or folder / DEFAULT_LOG_FILENAME
+    # Em --dry-run, não criar nem alterar arquivos de log.
+    log_file = None if args.dry_run else args.log_file or folder / DEFAULT_LOG_FILENAME
     logger = configure_logging(log_file)
+
+    authorized_passwords: tuple[str, ...] = ()
+    if args.authorized_passwords:
+        try:
+            authorized_passwords = read_authorized_passwords(args.authorized_passwords.expanduser())
+        except ValueError as error:
+            logger.error("%s arquivo=%s", str(error), args.authorized_passwords)
+            return 2
 
     results: Counter[str] = Counter()
     for source in iter_pdfs(folder, args.recursive):
-        results[process_file(source, dry_run=args.dry_run, logger=logger)] += 1
+        results[
+            process_file(
+                source,
+                dry_run=args.dry_run,
+                logger=logger,
+                authorized_passwords=authorized_passwords,
+            )
+        ] += 1
 
     logger.info("resumo: %s", ", ".join(f"{key}={value}" for key, value in sorted(results.items())) or "nenhum_pdf")
     return 0
