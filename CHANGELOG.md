@@ -12,14 +12,18 @@ Este arquivo registra mudanças funcionais relevantes do projeto.
 - Cópia sem senha com preservação de data/hora de modificação e, quando suportado, de acesso.
 - Movimentação segura do original para `originais-protegidos` somente após a cópia validada.
 - Testes automatizados para nomes, metadados e cenários de proteção por senha.
+- Parâmetro `--authorized-passwords` para lista curta de senhas autorizadas como fallback explícito.
 
 ### Changed
 
 - PDFs são verificados sem senha antes de interpretar o nome; os que não exigem senha são ignorados.
+- Erro conhecido de metadados XML inválidos para XMP é registrado como aviso e o PDF afetado é ignorado sem interromper o lote.
 - A senha pode ser obtida do último grupo de parênteses antes de `.pdf`, mesmo se houver texto depois dele.
-- Para nomes com vários grupos de parênteses, as candidatas explícitas são tentadas da direita para a esquerda, cobrindo sufixos do Windows como `(1)`.
+- Para nomes com vários grupos de parênteses, somente o último grupo antes de `.pdf` é usado como senha do nome.
 - Logs identificam o arquivo com conteúdos entre parênteses ocultos como `(...)`, sem revelar senhas.
+- Em `--dry-run`, a ferramenta registra eventos apenas no console e não cria arquivo de log.
 
 ### Security
 
-- Não há força bruta, adivinhação ou geração de senhas: somente textos explicitamente presentes no nome do arquivo podem ser usados.
+- Não há força bruta, adivinhação ou geração de senhas: somente a senha do nome do arquivo e uma lista curta explicitamente fornecida pela pessoa usuária podem ser usadas.
+- Senhas da lista autorizada não são exibidas, registradas ou persistidas pela ferramenta.

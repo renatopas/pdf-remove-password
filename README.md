@@ -15,6 +15,8 @@ Antes de interpretar o nome, o programa verifica se o PDF realmente exige senha.
 
 Se um PDF protegido não contém senha no nome, o programa não tenta adivinhar a senha: registra o aviso `arquivo_protegido_sem_senha_no_nome` e continua o lote.
 
+PDFs que apresentarem o erro conhecido de metadados `Metadata seems to be XML but not XMP` são ignorados com o aviso `metadados_xmp_invalidos`; o lote continua e o original não é alterado.
+
 Quando há mais de um grupo de parênteses, as candidatas são testadas da direita para a esquerda, usando somente os textos já presentes no próprio nome. Isso permite processar nomes como `arquivo(senha)(1).pdf`: primeiro `1` é tentado; se falhar, `senha` é usada e a saída será `arquivo(1).pdf`.
 
 ## Instalação

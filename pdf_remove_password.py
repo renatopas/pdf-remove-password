@@ -17,6 +17,7 @@ import pikepdf
 
 ORIGINALS_DIRECTORY = "originais-protegidos"
 DEFAULT_LOG_FILENAME = "remove-senha-pdf.log"
+INVALID_XMP_METADATA_MESSAGE = "Metadata seems to be XML but not XMP"
 
 
 @dataclass(frozen=True)
@@ -89,6 +90,11 @@ def remove_password(source: Path, destination: Path, password: str) -> None:
         pass
 
 
+def is_invalid_xmp_metadata_error(error: BaseException) -> bool:
+    """Identifica a mensagem conhecida de metadados XML que não são XMP."""
+    return INVALID_XMP_METADATA_MESSAGE in str(error)
+
+
 def inspect_pdf_protection(source: Path, log_name: str, logger: logging.Logger) -> str:
     """Verifica se o PDF exige senha sem tentar nenhuma senha fornecida."""
     try:
@@ -96,7 +102,10 @@ def inspect_pdf_protection(source: Path, log_name: str, logger: logging.Logger) 
             pass
     except pikepdf.PasswordError:
         return "protected"
-    except (pikepdf.PdfError, OSError, ValueError, RuntimeError):
+    except (pikepdf.PdfError, OSError, ValueError, RuntimeError) as error:
+        if is_invalid_xmp_metadata_error(error):
+            logger.warning("metadados_xmp_invalidos arquivo=%s", log_name)
+            return "ignored_invalid_xmp_metadata"
         logger.error("falha_ao_inspecionar_pdf arquivo=%s", log_name)
         return "failed_inspection"
 
@@ -120,6 +129,8 @@ def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
 
     protection_status = inspect_pdf_protection(source, log_name, logger)
     if protection_status == "failed_inspection":
+        return protection_status
+    if protection_status == "ignored_invalid_xmp_metadata":
         return protection_status
     if protection_status == "not_protected":
         logger.info("ignorado_pdf_sem_senha arquivo=%s", log_name)
@@ -149,13 +160,16 @@ def process_file(source: Path, *, dry_run: bool, logger: logging.Logger) -> str:
         except pikepdf.PasswordError:
             # A próxima tentativa, se houver, será outro texto já existente no nome.
             continue
-        except (pikepdf.PdfError, OSError, ValueError, RuntimeError):
+        except (pikepdf.PdfError, OSError, ValueError, RuntimeError) as error:
             # Não registrar a exceção: bibliotecas podem incluir dados sensíveis nela.
             if destination.exists():
                 try:
                     destination.unlink()
                 except OSError:
                     pass
+            if is_invalid_xmp_metadata_error(error):
+                logger.warning("metadados_xmp_invalidos arquivo=%s", log_name)
+                return "ignored_invalid_xmp_metadata"
             logger.error("falha_ao_abrir_ou_salvar_pdf arquivo=%s", log_name)
             return "failed_copy"
 
