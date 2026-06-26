@@ -4,11 +4,12 @@ Ferramenta de linha de comando para criar cópias sem senha de PDFs que você es
 
 ## Convenção de nomes
 
-A senha é o último conteúdo entre parênteses antes da extensão `.pdf`, mesmo que haja outros caracteres entre o parêntese de fechamento e a extensão. A cópia recebe o mesmo nome sem esse grupo.
+As senhas candidatas são os conteúdos não vazios entre parênteses no nome do arquivo. A ferramenta tenta esses grupos da direita para a esquerda, usando somente textos já presentes no nome. A cópia recebe o mesmo nome sem o grupo que abriu o PDF.
 
 ```text
 Contrato (rascunho) (Senha123).pdf  ->  Contrato (rascunho).pdf
 Contrato (Senha123) - cópia.pdf     ->  Contrato - cópia.pdf
+arquivo (Senha123)(1).pdf           ->  arquivo (1).pdf
 ```
 
 Antes de interpretar o nome, o programa verifica se o PDF realmente exige senha. PDFs que abrem sem senha são ignorados imediatamente, mesmo que possuam texto entre parênteses no nome. A senha não é escrita nos logs; para arquivos reconhecidos, o log substitui seu conteúdo por `(...)`, preservando a indicação de que o nome continha senha.
@@ -17,7 +18,7 @@ Se um PDF protegido não contém senha no nome e nenhuma lista autorizada foi in
 
 PDFs que apresentarem o erro conhecido de metadados `Metadata seems to be XML but not XMP` são ignorados com o aviso `metadados_xmp_invalidos`; o lote continua e o original não é alterado.
 
-Quando há mais de um grupo de parênteses, somente o último grupo é usado como senha do nome.
+Quando há mais de um grupo de parênteses, todos são candidatos explícitos. Isso cobre sufixos como `(1)`, comuns em arquivos duplicados no Windows: a ferramenta tenta `1`, depois tenta o grupo anterior, e preserva o sufixo se outro grupo for a senha correta.
 
 ## Lista curta de senhas autorizadas
 
@@ -45,7 +46,7 @@ Regras:
 - a ferramenta para no primeiro sucesso;
 - nenhuma senha é escrita em logs, erros, resumos ou saída de simulação.
 
-Para cada PDF protegido, a senha do nome é tentada primeiro. Se ela não existir ou não funcionar, a lista curta é usada como fallback. Quando não há senha no nome, a cópia sem senha recebe o sufixo `-sem-senha`, por exemplo `Documento.pdf` gera `Documento-sem-senha.pdf`.
+Para cada PDF protegido, as senhas do nome são tentadas primeiro, da direita para a esquerda. Se nenhuma existir ou funcionar, a lista curta é usada como fallback. Quando não há senha no nome, a cópia sem senha recebe o sufixo `-sem-senha`, por exemplo `Documento.pdf` gera `Documento-sem-senha.pdf`.
 
 ## Instalação
 

@@ -82,13 +82,13 @@ def test_unprotected_pdf_with_parentheses_is_ignored_before_destination_check(tm
 def test_uses_earlier_named_password_after_windows_numeric_suffix(tmp_path: Path) -> None:
     password = "senha-correta"
     source = tmp_path / f"documento ({password})(1).pdf"
-    destination = tmp_path / "documento (senha-correta).pdf"
+    destination = tmp_path / "documento (1).pdf"
     logger = logging.getLogger("test_windows_suffix_password")
     with pikepdf.new() as pdf:
         pdf.add_blank_page(page_size=(100, 100))
         pdf.save(source, encryption=pikepdf.Encryption(user=password, owner="proprietario", R=4))
 
-    result = process_file(source, dry_run=False, logger=logger, authorized_passwords=(password,))
+    result = process_file(source, dry_run=False, logger=logger)
 
     assert result == "processed"
     assert destination.exists()
@@ -177,6 +177,77 @@ def test_authorized_passwords_fallback_after_named_password_fails(tmp_path: Path
     assert password not in caplog.text
     assert named_password not in caplog.text
     assert "documento (...).pdf" in caplog.text
+
+
+def test_authorized_passwords_fallback_after_all_named_groups_fail(tmp_path: Path, caplog) -> None:
+    password = "senha-correta"
+    source = tmp_path / "documento (errada)(1).pdf"
+    destination = tmp_path / "documento (errada).pdf"
+    logger = logging.getLogger("test_authorized_passwords_after_all_groups")
+    with pikepdf.new() as pdf:
+        pdf.add_blank_page(page_size=(100, 100))
+        pdf.save(source, encryption=pikepdf.Encryption(user=password, owner="proprietario", R=4))
+
+    with caplog.at_level(logging.INFO, logger=logger.name):
+        result = process_file(source, dry_run=False, logger=logger, authorized_passwords=(password,))
+
+    assert result == "processed"
+    assert destination.exists()
+    assert not source.exists()
+    assert password not in caplog.text
+    assert "errada" not in caplog.text
+
+
+def test_named_password_candidates_are_tried_right_to_left(tmp_path: Path, monkeypatch) -> None:
+    source = tmp_path / "documento (primeira)(segunda)(terceira).pdf"
+    source.write_bytes(b"pdf")
+    logger = logging.getLogger("test_named_candidates_order")
+    attempts: list[tuple[str, str]] = []
+
+    def fake_inspect_pdf_protection(source: Path, log_name: str, logger: logging.Logger) -> str:
+        return "protected"
+
+    def fake_remove_password(source: Path, destination: Path, password: str) -> None:
+        attempts.append((password, destination.name))
+        if password == "segunda":
+            destination.write_bytes(b"sem senha")
+            return
+        raise pikepdf.PasswordError("senha invalida")
+
+    def fake_move(source_path: str, destination_path: str) -> None:
+        Path(destination_path).parent.mkdir(exist_ok=True)
+        Path(source_path).rename(destination_path)
+
+    monkeypatch.setattr(pdf_remove_password, "inspect_pdf_protection", fake_inspect_pdf_protection)
+    monkeypatch.setattr(pdf_remove_password, "remove_password", fake_remove_password)
+    monkeypatch.setattr(pdf_remove_password.shutil, "move", fake_move)
+
+    result = process_file(source, dry_run=False, logger=logger)
+
+    assert result == "processed"
+    assert attempts == [
+        ("terceira", "documento (primeira)(segunda).pdf"),
+        ("segunda", "documento (primeira)(terceira).pdf"),
+    ]
+
+
+def test_destination_collision_for_one_named_candidate_continues_to_next(tmp_path: Path) -> None:
+    password = "senha-correta"
+    source = tmp_path / f"documento ({password})(1).pdf"
+    colliding_destination = tmp_path / f"documento ({password}).pdf"
+    final_destination = tmp_path / "documento (1).pdf"
+    colliding_destination.write_bytes(b"destino existente")
+    logger = logging.getLogger("test_candidate_collision_continues")
+    with pikepdf.new() as pdf:
+        pdf.add_blank_page(page_size=(100, 100))
+        pdf.save(source, encryption=pikepdf.Encryption(user=password, owner="proprietario", R=4))
+
+    result = process_file(source, dry_run=False, logger=logger)
+
+    assert result == "processed"
+    assert colliding_destination.read_bytes() == b"destino existente"
+    assert final_destination.exists()
+    assert not source.exists()
 
 
 def test_stops_at_first_successful_authorized_password(tmp_path: Path, monkeypatch) -> None:

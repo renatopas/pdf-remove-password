@@ -1,4 +1,4 @@
-from pdf_remove_password import extract_password_and_output_name
+from pdf_remove_password import extract_password_and_output_name, extract_password_candidates
 
 
 def test_uses_last_parentheses_group_as_password() -> None:
@@ -32,3 +32,13 @@ def test_handles_files_without_a_final_group_or_pdf_extension() -> None:
 
 def test_returns_none_for_empty_password_group() -> None:
     assert extract_password_and_output_name("Contrato ().pdf") is None
+
+
+def test_extracts_all_non_empty_parentheses_groups_with_outputs() -> None:
+    candidates = extract_password_candidates("arquivo (abc) (senha)(2).pdf")
+
+    assert [(item.password, item.output_name) for item in candidates] == [
+        ("abc", "arquivo (senha)(2).pdf"),
+        ("senha", "arquivo (abc) (2).pdf"),
+        ("2", "arquivo (abc) (senha).pdf"),
+    ]

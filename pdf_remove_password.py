@@ -61,9 +61,42 @@ def extract_password_candidates(filename: str) -> list[FilenameInfo]:
 
 
 def extract_password_and_output_name(filename: str) -> FilenameInfo | None:
-    """Retorna somente o último grupo de parênteses antes de `.pdf`."""
+    """Retorna o último grupo de parênteses antes de `.pdf`."""
     candidates = extract_password_candidates(filename)
     return candidates[-1] if candidates else None
+
+
+def try_passwords_for_destination(
+    source: Path,
+    destination: Path,
+    passwords: tuple[str, ...],
+    *,
+    log_name: str,
+    logger: logging.Logger,
+) -> str:
+    """Tenta senhas já fornecidas para um destino específico, sem expor valores."""
+    for password in passwords:
+        try:
+            remove_password(source, destination, password)
+        except pikepdf.PasswordError:
+            # A próxima tentativa, se houver, será outra senha explicitamente fornecida.
+            continue
+        except (pikepdf.PdfError, OSError, ValueError, RuntimeError) as error:
+            # Não registrar a exceção: bibliotecas podem incluir dados sensíveis nela.
+            if destination.exists():
+                try:
+                    destination.unlink()
+                except OSError:
+                    pass
+            if is_invalid_xmp_metadata_error(error):
+                logger.warning("metadados_xmp_invalidos arquivo=%s", log_name)
+                return "ignored_invalid_xmp_metadata"
+            logger.error("falha_ao_abrir_ou_salvar_pdf arquivo=%s", log_name)
+            return "failed_copy"
+
+        return "password_matched"
+
+    return "password_failed"
 
 
 def fallback_output_name(filename: str) -> str:
@@ -172,8 +205,8 @@ def process_file(
         logger.info("ignorado_pdf_sem_senha arquivo=%s", log_name)
         return "ignored_not_protected"
 
-    named_password = extract_password_and_output_name(source.name)
-    if not named_password and not authorized_passwords:
+    named_candidates = extract_password_candidates(source.name)
+    if not named_candidates and not authorized_passwords:
         logger.warning("arquivo_protegido_sem_senha_no_nome arquivo=%s", log_name)
         return "ignored_protected_without_password_name"
 
@@ -183,35 +216,25 @@ def process_file(
         logger.warning("ignorado_colisao_original arquivo=%s", log_name)
         return "ignored_original_collision"
 
-    if named_password:
-        destination = source.with_name(named_password.output_name)
-        attempts = (named_password.password, *authorized_passwords)
-    else:
-        destination = source.with_name(fallback_output_name(source.name))
-        attempts = authorized_passwords
-
-    if destination.exists():
-        logger.warning("ignorado_colisao_destino arquivo=%s", log_name)
-        return "ignored_destination_collision"
-
-    for password in attempts:
-        try:
-            remove_password(source, destination, password)
-        except pikepdf.PasswordError:
-            # A próxima tentativa, se houver, será outra senha explicitamente fornecida.
+    had_destination_collision = False
+    for info in reversed(named_candidates):
+        destination = source.with_name(info.output_name)
+        if destination.exists():
+            logger.warning("ignorado_colisao_destino arquivo=%s", log_name)
+            had_destination_collision = True
             continue
-        except (pikepdf.PdfError, OSError, ValueError, RuntimeError) as error:
-            # Não registrar a exceção: bibliotecas podem incluir dados sensíveis nela.
-            if destination.exists():
-                try:
-                    destination.unlink()
-                except OSError:
-                    pass
-            if is_invalid_xmp_metadata_error(error):
-                logger.warning("metadados_xmp_invalidos arquivo=%s", log_name)
-                return "ignored_invalid_xmp_metadata"
-            logger.error("falha_ao_abrir_ou_salvar_pdf arquivo=%s", log_name)
-            return "failed_copy"
+
+        password_status = try_passwords_for_destination(
+            source,
+            destination,
+            (info.password,),
+            log_name=log_name,
+            logger=logger,
+        )
+        if password_status == "password_failed":
+            continue
+        if password_status != "password_matched":
+            return password_status
 
         try:
             original_directory.mkdir(exist_ok=True)
@@ -223,13 +246,46 @@ def process_file(
         logger.info("copia_criada_e_original_movido arquivo=%s", log_name)
         return "processed"
 
+    if authorized_passwords:
+        fallback_name = named_candidates[-1].output_name if named_candidates else fallback_output_name(source.name)
+        destination = source.with_name(fallback_name)
+        if destination.exists():
+            logger.warning("ignorado_colisao_destino arquivo=%s", log_name)
+            return "ignored_destination_collision"
+
+        password_status = try_passwords_for_destination(
+            source,
+            destination,
+            authorized_passwords,
+            log_name=log_name,
+            logger=logger,
+        )
+        if password_status == "password_failed":
+            logger.error("senha_invalida_para_credenciais_fornecidas arquivo=%s", log_name)
+            return "failed_password"
+        if password_status != "password_matched":
+            return password_status
+
+        try:
+            original_directory.mkdir(exist_ok=True)
+            shutil.move(str(source), str(moved_original))
+        except OSError:
+            logger.error("falha_ao_mover_original arquivo=%s", log_name)
+            return "failed_move"
+
+        logger.info("copia_criada_e_original_movido arquivo=%s", log_name)
+        return "processed"
+
+    if had_destination_collision:
+        return "ignored_destination_collision"
+
     logger.error("senha_invalida_para_credenciais_fornecidas arquivo=%s", log_name)
     return "failed_password"
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Remove a senha de PDFs autorizados usando apenas a senha no nome do arquivo."
+        description="Remove a senha de PDFs autorizados usando senhas explicitamente fornecidas."
     )
     parser.add_argument("folder", type=Path, help="Pasta que contém os PDFs")
     parser.add_argument("--recursive", action="store_true", help="Inclui subpastas")
