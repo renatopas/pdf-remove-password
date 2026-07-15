@@ -3,14 +3,18 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
+import importlib.util
 import logging
+import os
 import re
 import shutil
 import sys
+import tempfile
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterator
+from typing import Callable, Iterator, MutableMapping
 
 import pikepdf
 
@@ -20,6 +24,16 @@ DEFAULT_LOG_FILENAME = "remove-senha-pdf.log"
 INVALID_XMP_METADATA_MESSAGE = "Metadata seems to be XML but not XMP"
 AUTHORIZED_PASSWORDS_LIMIT = 10
 FALLBACK_OUTPUT_SUFFIX = "-sem-senha"
+TESSDATA_ENV = "TESSDATA_PREFIX"
+MarkdownConverter = Callable[[Path], str]
+
+
+class MarkdownEnvironmentError(RuntimeError):
+    """Falha de configuração com código seguro para registro."""
+
+    def __init__(self, code: str) -> None:
+        super().__init__(code)
+        self.code = code
 
 
 @dataclass(frozen=True)
@@ -105,6 +119,138 @@ def fallback_output_name(filename: str) -> str:
     return f"{path.stem}{FALLBACK_OUTPUT_SUFFIX}{path.suffix}"
 
 
+def markdown_output_path(pdf_path: Path) -> Path:
+    """Calcula o destino Markdown a partir da cópia descriptografada."""
+    return pdf_path.with_suffix(".md")
+
+
+def validate_markdown_environment(*, require_ocr: bool = False) -> Path | None:
+    """Valida PyMuPDF4LLM e, quando solicitado, o ambiente do Tesseract."""
+    if importlib.util.find_spec("pymupdf") is None:
+        raise MarkdownEnvironmentError("pymupdf_nao_instalado")
+    if importlib.util.find_spec("pymupdf4llm") is None:
+        raise MarkdownEnvironmentError("pymupdf4llm_nao_instalado")
+
+    if not require_ocr:
+        return None
+
+    tesseract_executable = shutil.which("tesseract")
+    if tesseract_executable is None:
+        raise MarkdownEnvironmentError("tesseract_nao_instalado_ou_fora_do_path")
+
+    configured_tessdata = os.environ.get(TESSDATA_ENV)
+    tessdata_path = (
+        Path(configured_tessdata).expanduser()
+        if configured_tessdata
+        else Path(tesseract_executable).resolve().parent / "tessdata"
+    )
+    if not tessdata_path.is_dir():
+        raise MarkdownEnvironmentError("tessdata_nao_encontrado")
+    if not (tessdata_path / "por.traineddata").is_file():
+        raise MarkdownEnvironmentError("tessdata_portugues_nao_instalado")
+    if not (tessdata_path / "eng.traineddata").is_file():
+        raise MarkdownEnvironmentError("tessdata_ingles_nao_instalado")
+    return tessdata_path
+
+
+def build_pymupdf_converter(
+    tessdata_path: Path | None, *, use_ocr: bool = False
+) -> MarkdownConverter:
+    """Cria conversor local; OCR seletivo só é habilitado explicitamente."""
+    # Import tardio mantém a dependência opcional fora do fluxo padrão e do
+    # modo --dry-run. PyMuPDF usa TESSDATA_PREFIX para localizar idiomas.
+    if use_ocr and tessdata_path is not None:
+        os.environ[TESSDATA_ENV] = str(tessdata_path)
+    import pymupdf4llm
+
+    def convert(pdf_path: Path) -> str:
+        # Algumas versões emitem diagnósticos diretamente em stdout/stderr.
+        # Descartá-los evita ruído e possível exposição de conteúdo documental.
+        with open(os.devnull, "w", encoding="utf-8") as sink:
+            with contextlib.redirect_stdout(sink), contextlib.redirect_stderr(sink):
+                return pymupdf4llm.to_markdown(
+                    str(pdf_path),
+                    use_ocr=use_ocr,
+                    force_ocr=False,
+                    **({"ocr_language": "por+eng"} if use_ocr else {}),
+                )
+
+    return convert
+
+
+def pymupdf_markdown_converter(*, use_ocr: bool = False) -> MarkdownConverter:
+    """Retorna função que inicializa o PyMuPDF4LLM somente no primeiro uso."""
+    converter = None
+
+    def convert(pdf_path: Path) -> str:
+        nonlocal converter
+        if converter is None:
+            tessdata_path = validate_markdown_environment(require_ocr=use_ocr)
+            converter = build_pymupdf_converter(tessdata_path, use_ocr=use_ocr)
+        return converter(pdf_path)
+
+    return convert
+
+
+def create_markdown_atomically(
+    pdf_path: Path,
+    converter: MarkdownConverter,
+    *,
+    log_name: str,
+    logger: logging.Logger,
+) -> str:
+    """Converte e publica Markdown completo sem sobrescrever o destino."""
+    destination = markdown_output_path(pdf_path)
+    if destination.exists():
+        logger.warning("colisao_destino_markdown arquivo=%s", log_name)
+        return "markdown_collision"
+
+    temporary_path: Path | None = None
+    try:
+        logger.info("geracao_markdown_iniciada arquivo=%s", log_name)
+        markdown = converter(pdf_path)
+        with tempfile.NamedTemporaryFile(
+            mode="w",
+            encoding="utf-8",
+            newline="\n",
+            prefix=f".{destination.name}.",
+            suffix=".tmp",
+            dir=destination.parent,
+            delete=False,
+        ) as temporary:
+            temporary_path = Path(temporary.name)
+            temporary.write(markdown)
+            temporary.flush()
+            os.fsync(temporary.fileno())
+
+        # O link é criado atomicamente e falha se outro processo tiver criado o
+        # destino entre a verificação inicial e a publicação.
+        os.link(temporary_path, destination)
+        temporary_path.unlink()
+        logger.info("markdown_criado arquivo=%s", log_name)
+        return "markdown_created"
+    except FileExistsError:
+        logger.warning("colisao_destino_markdown arquivo=%s", log_name)
+        return "markdown_collision"
+    except MarkdownEnvironmentError as error:
+        if error.code.startswith("tesseract_"):
+            logger.error("ocr_indisponivel arquivo=%s", log_name)
+        else:
+            logger.error("ambiente_markdown_indisponivel arquivo=%s", log_name)
+        return "markdown_failed"
+    except Exception:
+        # Bibliotecas de extração podem incluir conteúdo na exceção. Por arquivo,
+        # registrar somente um código seguro e continuar o lote.
+        logger.error("falha_geracao_markdown arquivo=%s", log_name)
+        return "markdown_failed"
+    finally:
+        if temporary_path is not None and temporary_path.exists():
+            try:
+                temporary_path.unlink()
+            except OSError:
+                logger.error("residuo_temporario_markdown arquivo=%s", log_name)
+
+
 def read_authorized_passwords(path: Path, *, limit: int = AUTHORIZED_PASSWORDS_LIMIT) -> tuple[str, ...]:
     """Lê uma lista curta de senhas autorizadas sem registrar seu conteúdo."""
     try:
@@ -188,12 +334,18 @@ def process_file(
     dry_run: bool,
     logger: logging.Logger,
     authorized_passwords: tuple[str, ...] = (),
+    markdown_converter: MarkdownConverter | None = None,
+    markdown_results: MutableMapping[str, int] | None = None,
 ) -> str:
     """Processa um PDF e retorna um código de resultado seguro para logs."""
     log_name = safe_log_filename(source.name)
     if dry_run:
         # Não abrir o arquivo evita inclusive possível atualização de atime.
         logger.info("simulacao_inspecao_protecao arquivo=%s", log_name)
+        if markdown_converter is not None:
+            logger.info("simulacao_markdown_habilitado arquivo=%s", log_name)
+            if markdown_results is not None:
+                markdown_results["markdown_dry_run"] = markdown_results.get("markdown_dry_run", 0) + 1
         return "dry_run"
 
     protection_status = inspect_pdf_protection(source, log_name, logger)
@@ -203,6 +355,12 @@ def process_file(
         return protection_status
     if protection_status == "not_protected":
         logger.info("ignorado_pdf_sem_senha arquivo=%s", log_name)
+        if markdown_converter is not None:
+            markdown_status = create_markdown_atomically(
+                source, markdown_converter, log_name=log_name, logger=logger
+            )
+            if markdown_results is not None:
+                markdown_results[markdown_status] = markdown_results.get(markdown_status, 0) + 1
         return "ignored_not_protected"
 
     named_candidates = extract_password_candidates(source.name)
@@ -244,6 +402,12 @@ def process_file(
             return "failed_move"
 
         logger.info("copia_criada_e_original_movido arquivo=%s", log_name)
+        if markdown_converter is not None:
+            markdown_status = create_markdown_atomically(
+                destination, markdown_converter, log_name=log_name, logger=logger
+            )
+            if markdown_results is not None:
+                markdown_results[markdown_status] = markdown_results.get(markdown_status, 0) + 1
         return "processed"
 
     if authorized_passwords:
@@ -274,6 +438,12 @@ def process_file(
             return "failed_move"
 
         logger.info("copia_criada_e_original_movido arquivo=%s", log_name)
+        if markdown_converter is not None:
+            markdown_status = create_markdown_atomically(
+                destination, markdown_converter, log_name=log_name, logger=logger
+            )
+            if markdown_results is not None:
+                markdown_results[markdown_status] = markdown_results.get(markdown_status, 0) + 1
         return "processed"
 
     if had_destination_collision:
@@ -296,6 +466,17 @@ def build_parser() -> argparse.ArgumentParser:
         type=Path,
         help="Arquivo opcional com lista curta de senhas autorizadas, uma por linha",
     )
+    parser.add_argument(
+        "--markdown",
+        action="store_true",
+        help="Gera Markdown localmente com PyMuPDF4LLM para todo PDF legível",
+    )
+    parser.add_argument(
+        "-ocr",
+        "--ocr",
+        action="store_true",
+        help="Habilita OCR seletivo na geração de Markdown (requer --markdown)",
+    )
     return parser
 
 
@@ -315,7 +496,10 @@ def configure_logging(log_file: Path | None) -> logging.Logger:
 
 
 def main(argv: list[str] | None = None) -> int:
-    args = build_parser().parse_args(argv)
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    if args.ocr and not args.markdown:
+        parser.error("--ocr requer --markdown")
     folder = args.folder.expanduser()
     if not folder.is_dir():
         logger = configure_logging(None if args.dry_run else args.log_file)
@@ -336,7 +520,16 @@ def main(argv: list[str] | None = None) -> int:
             logger.error("%s arquivo=%s", str(error), args.authorized_passwords)
             return 2
 
+    markdown_converter: MarkdownConverter | None = None
+    if args.markdown:
+        if args.dry_run:
+            # Sentinela que sinaliza a intenção sem importar o conversor nem executar OCR.
+            markdown_converter = lambda _path: ""
+        else:
+            markdown_converter = pymupdf_markdown_converter(use_ocr=args.ocr)
+
     results: Counter[str] = Counter()
+    markdown_results: Counter[str] = Counter()
     for source in iter_pdfs(folder, args.recursive):
         results[
             process_file(
@@ -344,10 +537,18 @@ def main(argv: list[str] | None = None) -> int:
                 dry_run=args.dry_run,
                 logger=logger,
                 authorized_passwords=authorized_passwords,
+                markdown_converter=markdown_converter,
+                markdown_results=markdown_results,
             )
         ] += 1
 
     logger.info("resumo: %s", ", ".join(f"{key}={value}" for key, value in sorted(results.items())) or "nenhum_pdf")
+    if args.markdown:
+        logger.info(
+            "resumo_markdown: %s",
+            ", ".join(f"{key}={value}" for key, value in sorted(markdown_results.items()))
+            or "nenhum_markdown",
+        )
     return 0
 
 

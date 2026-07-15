@@ -12,7 +12,7 @@ Este projeto implementará uma ferramenta Windows em Python para remover a cript
 ## Regras obrigatórias
 
 - Use `pikepdf` para abrir e salvar os PDFs.
-- Antes de analisar a senha no nome ou o destino, verifique se o PDF abre sem senha; se abrir, ignore-o.
+- Antes de analisar a senha no nome ou o destino, verifique se o PDF abre sem senha; se abrir, ignore-o no fluxo de descriptografia. Quando `--markdown` estiver ativo, ele ainda deve ser convertido diretamente.
 - Para um PDF protegido, tente primeiro os textos dos grupos de parênteses já existentes no nome, da direita para a esquerda; se nenhum deles existir ou abrir o PDF, use somente a lista curta de senhas explicitamente fornecida pela pessoa usuária.
 - A lista de senhas deve ser pequena, finita, mantida manualmente pela pessoa usuária, usada apenas por opção explícita e nunca gerada, expandida, derivada, modificada ou baixada pela ferramenta.
 - Nunca implemente ou sugira força bruta, listas públicas de senhas, dicionários, mutações, adivinhação, heurísticas, variações automáticas, tentativas ilimitadas, ou qualquer descoberta de senha.
@@ -21,6 +21,10 @@ Este projeto implementará uma ferramenta Windows em Python para remover a cript
 - Mova o original apenas após esse sucesso, para `originais-protegidos` dentro de sua pasta atual.
 - Não sobrescreva destino, original ou log sem comportamento explícito e testado.
 - `--dry-run` não pode criar, mover, renomear ou alterar arquivos e diretórios.
+- A geração de Markdown deve ser opcional e abranger todo PDF legível. Para protegidos, use a cópia descriptografada validada; para PDFs sem senha, use o próprio arquivo sem renomeá-lo ou movê-lo. Execute localmente com PyMuPDF4LLM e não envie conteúdo a serviços externos.
+- Preserve texto nativo e mantenha OCR desabilitado por padrão. Use OCR seletivo por Tesseract (`por` e `eng`) somente com a opção explícita `--ocr`, combinada com `--markdown`.
+- Não use nem baixe modelos neurais durante o lote. Valide PyMuPDF4LLM para Markdown e valide Tesseract e os idiomas somente antes do primeiro OCR solicitado.
+- Nunca sobrescreva Markdown existente nem registre conteúdo extraído. Falha no Markdown não pode invalidar ou reverter a cópia PDF já concluída.
 
 ## Convenções de implementação
 
@@ -31,6 +35,7 @@ Este projeto implementará uma ferramenta Windows em Python para remover a cript
 - Ao percorrer recursivamente, exclua diretórios `originais-protegidos`.
 - Capture exceções de `pikepdf` e de E/S por arquivo, continue o lote e produza resumo final.
 - Prefira escrita atômica/temporária da cópia quando a API permitir, evitando arquivos de saída parcialmente produzidos.
+- Publique o Markdown por escrita temporária segura, removendo resíduos quando possível, e centralize o cálculo do destino em função testável.
 - Não inclua PDFs reais com senhas em versionamento ou em testes. Gere fixtures de teste localmente e descarte-as.
 
 ## Verificação antes de concluir mudanças
@@ -40,4 +45,5 @@ Este projeto implementará uma ferramenta Windows em Python para remover a cript
 - Verifique cenários de simulação, colisão, arquivo sem padrão de senha, PDF inválido e caminho recursivo.
 - Verifique cenários de fallback com lista curta, incluindo lista ausente, vazia, acima do limite, sem sucesso e com sucesso.
 - Inspecione os logs/saída de teste para garantir que nenhuma senha aparece.
+- Para mudanças de Markdown, verifique texto nativo, OCR, PDF misto, colisão, temporários, dependências ausentes e que nenhum conteúdo documental aparece nos logs.
 - Documente qualquer comportamento que não esteja definido em `SPEC.md` antes de assumir uma política nova.

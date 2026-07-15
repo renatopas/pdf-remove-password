@@ -34,7 +34,7 @@ Aplicativo Windows em Python que processa PDFs para os quais a pessoa usuária j
 ## Interface de linha de comando proposta
 
 ```text
-pdf-remove-password PASTA [--recursive] [--dry-run] [--log-file CAMINHO] [--authorized-passwords CAMINHO]
+pdf-remove-password PASTA [--recursive] [--dry-run] [--log-file CAMINHO] [--authorized-passwords CAMINHO] [--markdown] [--ocr]
 ```
 
 - `PASTA`: diretório a processar.
@@ -42,13 +42,15 @@ pdf-remove-password PASTA [--recursive] [--dry-run] [--log-file CAMINHO] [--auth
 - `--dry-run`: simula todas as ações; não cria PDFs, não cria pastas, não cria logs e não move arquivos.
 - `--log-file CAMINHO`: destino opcional para log persistente; sem essa opção, registrar em `remove-senha-pdf.log` dentro da pasta processada. Em `--dry-run`, registrar somente no console.
 - `--authorized-passwords CAMINHO`: arquivo opcional de texto com lista curta de senhas autorizadas, uma por linha.
+- `--markdown`: gera opcionalmente, com PyMuPDF4LLM local e sem OCR por padrão, um `.md` para todo PDF legível encontrado.
+- `--ocr`: habilita OCR seletivo em português e inglês; só é válido junto com `--markdown`.
 
 ## Fluxo por arquivo
 
 1. Localizar PDFs de acordo com o modo recursivo escolhido.
 2. Ignorar arquivos já situados em uma pasta `originais-protegidos`.
 3. Fora de `--dry-run`, tentar abrir o PDF sem senha para verificar se ele é protegido.
-4. Se ele abrir sem senha, registrá-lo como ignorado e não analisar o nome nem o destino.
+4. Se ele abrir sem senha, registrá-lo como ignorado pelo fluxo de descriptografia e não analisar o nome nem o destino do PDF; com `--markdown`, converter diretamente esse arquivo.
 5. Se for protegido, extrair todos os grupos de parênteses não vazios antes de `.pdf`.
 6. Se não houver senha válida no nome e não houver lista autorizada, registrar `arquivo_protegido_sem_senha_no_nome`.
 7. Tentar as senhas do nome da direita para a esquerda, calculando o nome de saída pela remoção somente do grupo em tentativa.
@@ -59,10 +61,29 @@ pdf-remove-password PASTA [--recursive] [--dry-run] [--log-file CAMINHO] [--auth
 12. Somente então criar a subpasta de originais, se necessário, e mover o PDF de origem para ela.
 13. Em qualquer falha, registrar o erro sem revelar a senha e manter o original no local.
 
+## Geração opcional de Markdown
+
+- Sem `--markdown`, não importar nem inicializar PyMuPDF4LLM e preservar o fluxo atual.
+- Gerar Markdown para todo PDF legível quando `--markdown` estiver ativo.
+- Para PDFs protegidos, usar somente a cópia descriptografada criada e validada com sucesso.
+- Para PDFs que já abrem sem senha, usar o próprio arquivo como entrada, sem interpretar parênteses como senha, sem renomeá-lo e sem movê-lo.
+- Mover o original conforme o fluxo seguro atual antes de iniciar a conversão. Falha posterior no Markdown não invalida nem reverte a cópia ou a movimentação concluída.
+- Usar PyMuPDF4LLM localmente, sem serviços remotos, modelos neurais ou plugins externos.
+- Preservar texto nativo e manter OCR desabilitado por padrão. Somente com `--ocr`, habilitar OCR seletivo por Tesseract para português (`por`) e inglês (`eng`), sem forçar OCR de página inteira.
+- Salvar o `.md` na pasta da cópia, com o mesmo nome-base e extensão `.md`.
+- Escrever em temporário na pasta de destino e publicar somente depois do sucesso.
+- Nunca sobrescrever Markdown existente. A colisão afeta somente o Markdown.
+- Não exigir Tesseract para `--markdown` sem `--ocr`. Quando `--ocr` estiver ativo, localizar os dados `tessdata` por `TESSDATA_PREFIX` ou ao lado do executável e validar os idiomas antes do OCR.
+- Capturar falhas do PyMuPDF4LLM, OCR e E/S por arquivo, continuar o lote e contabilizá-las separadamente.
+- Inicializar PyMuPDF4LLM somente após a primeira cópia elegível; dependências ausentes não devem impedir a descriptografia do lote.
+- Não registrar conteúdo extraído, imagens, senhas ou exceções brutas do conversor.
+- Em `--dry-run --markdown`, não validar/importar/inicializar PyMuPDF4LLM, executar OCR ou criar temporários e caches.
+
 ## Dependências e compatibilidade
 
 - Python suportado pelo projeto.
 - `pikepdf` para abertura e salvamento dos PDFs.
+- PyMuPDF4LLM opcional para Markdown; Tesseract com dados `por` e `eng` é necessário somente para `--ocr`.
 - APIs padrão para caminhos, movimentação e logs (`pathlib`, `shutil`, `logging`, `argparse`).
 - Alvo: Windows; os caminhos devem ser tratados por `pathlib`, sem concatenação manual de separadores.
 
@@ -85,3 +106,6 @@ Cada evento deve ter nível, caminho do arquivo e resultado, sem a senha. Evento
 - Testar falha de senha/PDF corrompido: nenhum original é movido.
 - Testar colisão de destino: nenhum arquivo é sobrescrito nem movido.
 - Testar que logs e exceções capturadas não contêm a senha.
+- Testar Markdown com texto nativo, imagem/OCR e documento misto usando fixtures locais ou conversores simulados.
+- Testar colisão, publicação temporária, falha de conversão e contadores separados de Markdown.
+- Testar que PDFs sem senha geram Markdown sem serem renomeados ou movidos e que `--dry-run --markdown` não inicializa dependências nem cria artefatos.
