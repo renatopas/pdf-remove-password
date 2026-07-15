@@ -13,17 +13,23 @@ Este arquivo registra mudanças funcionais relevantes do projeto.
 - Movimentação segura do original para `originais-protegidos` somente após a cópia validada.
 - Testes automatizados para nomes, metadados e cenários de proteção por senha.
 - Parâmetro `--authorized-passwords` para lista curta de senhas autorizadas como fallback explícito.
+- Parâmetro opcional `--markdown` para gerar Markdown local com PyMuPDF4LLM para todo PDF legível, protegido ou não.
+- Parâmetro opcional `--ocr` para habilitar explicitamente OCR seletivo por Tesseract em português e inglês durante a geração de Markdown.
 
 ### Changed
 
+- A geração com `--markdown` não executa mais OCR por padrão, priorizando exclusivamente a camada textual existente; Tesseract só é exigido com `--ocr`.
 - PDFs são verificados sem senha antes de interpretar o nome; os que não exigem senha são ignorados.
 - Erro conhecido de metadados XML inválidos para XMP é registrado como aviso e o PDF afetado é ignorado sem interromper o lote.
 - A senha pode ser obtida de qualquer grupo de parênteses já existente no nome antes de `.pdf`, mesmo se houver texto depois dele.
 - Para nomes com vários grupos de parênteses, as candidatas explícitas são tentadas da direita para a esquerda, preservando sufixos como `(1)` quando outro grupo anterior for a senha correta.
 - Logs identificam o arquivo com conteúdos entre parênteses ocultos como `(...)`, sem revelar senhas.
 - Em `--dry-run`, a ferramenta registra eventos apenas no console e não cria arquivo de log.
+- Falhas e colisões de Markdown são contabilizadas separadamente e não revertem o processamento bem-sucedido do PDF.
+- PDFs que já abrem sem senha continuam fora do fluxo de descriptografia, mas geram Markdown diretamente quando `--markdown` está ativo.
 
 ### Security
 
 - Não há força bruta, adivinhação ou geração de senhas: somente textos já presentes em grupos de parênteses no nome do arquivo e uma lista curta explicitamente fornecida pela pessoa usuária podem ser usados.
 - Senhas da lista autorizada não são exibidas, registradas ou persistidas pela ferramenta.
+- A conversão Markdown é inteiramente local, não usa modelos neurais nem registra conteúdo extraído.
